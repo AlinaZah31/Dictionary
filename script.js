@@ -1,7 +1,7 @@
 var arrayOfWords = [""];
 
 function checkWord() {
-    const currentWord = document.getElementById("dictionary").value;
+    const currentWord = document.getElementById("dictionary").value.toLowerCase();
     if (arrayOfWords.includes(currentWord)) {
         document.getElementById("Initial-text").innerHTML = "The word already exists!";
     } else {
