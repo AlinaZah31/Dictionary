@@ -1,12 +1,21 @@
-var arrayOfWords = [""];
+let arrayOfWords = [""];
 
 function checkWord() {
-    const currentWord = document.getElementById("dictionary").value.toLowerCase();
-    if (arrayOfWords.includes(currentWord)) {
-        document.getElementById("Initial-text").innerHTML = "The word already exists!";
+    const currentSaveWord = document.getElementById("save").value.toLowerCase();
+    arrayOfWords = arrayOfWords + Array(currentSaveWord) + " ";
+    const currentSearchWord = document.getElementById("search").value.toLowerCase();
+    const hasWord = (arrayOfWords, currentSearchWord) => 
+        arrayOfWords.split(/\s+/).includes(currentSearchWord);
+    if (currentSearchWord != "") {
+        if (hasWord(arrayOfWords, currentSearchWord)) {
+            document.getElementById("Initial-text").innerHTML = "Word already saved!";
+        } else {
+            document.getElementById("Initial-text").innerHTML = "WORD NOT SAVED!";
+        }
     } else {
-        document.getElementById("Initial-text").innerHTML = "NEW WORD SAVED!";
-        arrayOfWords = arrayOfWords + Array(currentWord) + " ";
+        document.getElementById("Initial-text").innerHTML = "Dictionary";
     }
 }
+
+
 
