@@ -1,13 +1,13 @@
-let arrayOfStrings = "";
+const arrayOfStrings = [" "];
 
 function checkWord() {
     const currentSaveWord = document.getElementById("save").value.toLowerCase();
-    if (!arrayOfStrings.split("\n").includes(currentSaveWord)) {
-        arrayOfStrings = arrayOfStrings + Array(currentSaveWord) + "\n";
+    if (!arrayOfStrings.includes(currentSaveWord)) {
+        arrayOfStrings.push(currentSaveWord);
     }
     const currentSearchWord = document.getElementById("search").value.toLowerCase();
     const hasWord = (arrayOfStrings, currentSearchWord) => 
-        arrayOfStrings.split("\n").includes(currentSearchWord);
+        arrayOfStrings.includes(currentSearchWord);
     if (currentSearchWord != "") {
         if (hasWord(arrayOfStrings, currentSearchWord)) {
             document.getElementById("Initial-text").innerHTML = "Word already saved!";
@@ -18,4 +18,3 @@ function checkWord() {
         document.getElementById("Initial-text").innerHTML = "Dictionary";
     }
 }
-
